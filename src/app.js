@@ -2,7 +2,7 @@ let express =  require("express");
 let fetch = require('node-fetch');
 let path = require('path');
 let app = express();
-
+const port = process.env.PORT || 3000;
 app.use(express.static(path.join(__dirname,'../public')))
 
 app.get('/weather/:address',async (req,res)=>{
@@ -38,6 +38,6 @@ app.get('/weather/:address',async (req,res)=>{
 });
 
 
-app.listen(3000,()=>{
-    console.log("listning at 3000.....");
+app.listen(port,()=>{
+    console.log("listning at "+port+".....");
 })
